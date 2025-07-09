@@ -16,5 +16,27 @@ public class App {
         next 라는 스캐너의 메소드는 String 을 반환하기 때문에 그냥 char operator 하면 에러 발생
         charAt(idx): char 타입으로 반환하고자 하는 문자열의 위치(index)를 매개변수로 받아 char 타입으로 변경
         */
+
+        int result = 0;
+        if (operator == '+') {
+            result = num1 + num2;
+        } else if (operator == '-') {
+            if (num2 > num1) {
+                System.out.println("두 번째 숫자가 첫 번째 숫자보다 커서 연산을 진행할 수 없습니다.");
+            } else {
+                result = num1 - num2;
+            }
+        } else if (operator == '*') {
+            result = num1 * num2;
+        } else if (operator == '/') {
+            if (num2 == 0) {
+                System.out.println("분모에 0이 입력될 수 없습니다.");
+            } else {
+                result = num1 / num2;
+            }
+        } else {
+            System.out.println("잘못된 접근입니다.");
+        }
+        System.out.println("결과: " + result);
     }
 }
