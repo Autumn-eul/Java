@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int[] arr = new int[10];
+        int i = 0;
 
         boolean run = true;
         while (run) {
@@ -41,6 +43,9 @@ public class App {
             }
             System.out.println("결과: " + result);
 
+            arr[i] = result;
+            i++;
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String str = sc.next();
 
@@ -48,6 +53,9 @@ public class App {
                 System.out.println("계산기를 종료합니다.");
                 run = false;
             }
+        }
+        for (int a : arr) {
+            System.out.println("저장된 값: " + a);
         }
     }
 }
