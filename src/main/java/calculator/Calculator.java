@@ -42,4 +42,13 @@ public class Calculator {
             total.remove(0);
         }
     }
+
+    public void inquiryResults(String str) {
+        if (str.equals("inquiry")) {
+            System.out.println("저장된 연산 결과");
+            for (int i : total) {
+                System.out.println("연산 결과: " + i);
+            }
+        }
+    }
 }
