@@ -36,4 +36,10 @@ public class Calculator {
     public void setTotal(ArrayList<Integer> total) {
         this.total = total;
     }
+
+    public void removeResult(String str) {
+        if (str.equals("remove")) {
+            total.remove(0);
+        }
+    }
 }

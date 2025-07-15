@@ -26,6 +26,10 @@ public class App {
                 continue;
             }
 
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String delete = sc.next();
+            cal.removeResult(delete);
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String end = sc.next();
 
