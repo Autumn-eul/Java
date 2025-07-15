@@ -53,6 +53,15 @@ public class App {
                 totalResult.remove(0);  // 0번째 인덱스 값 삭제
             }
 
+            System.out.println("저장된 연산 결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiry = sc.next();
+
+            if (inquiry.equals("inquiry")) {
+                for (int i : totalResult) {
+                    System.out.println("연산 결과: " + i);
+                }
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String end = sc.next();
 
@@ -60,9 +69,6 @@ public class App {
                 System.out.println("계산기를 종료합니다.");
                 run = false;
             }
-        }
-        for (int i = 0; i < totalResult.size(); i++) {
-            System.out.println("연산 결과: " + totalResult.get(i));
         }
     }
 }
