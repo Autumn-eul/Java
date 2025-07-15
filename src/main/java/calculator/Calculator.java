@@ -2,7 +2,7 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    ArrayList<Integer> totalResult = new ArrayList<>();
+    private ArrayList<Integer> total = new ArrayList<>();
 
     public int calculate(int num1, int num2, char operator) {
         int result = 0;
@@ -25,7 +25,15 @@ public class Calculator {
         } else {
             throw new IllegalArgumentException("잘못된 연산자입니다.: " + operator);
         }
-        totalResult.add(result);
+        total.add(result);
         return result;
+    }
+
+    public ArrayList<Integer> getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(ArrayList<Integer> total) {
+        this.total = total;
     }
 }

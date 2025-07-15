@@ -1,10 +1,12 @@
 package calculator;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Calculator cal = new Calculator();
+        ArrayList<Integer> totalResult = cal.getTotal();
 
         boolean run = true;
         while (run) {
@@ -22,23 +24,6 @@ public class App {
             } catch (IllegalArgumentException e) {
                 System.out.println("오류: " + e.getMessage());
                 continue;
-            }
-
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            String delete = sc.next();
-
-            if (delete.equals("remove")) {
-                cal.totalResult.remove(0);  // 0번째 인덱스 값 삭제
-            }
-
-            System.out.println("저장된 연산 결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            String inquiry = sc.next();
-
-            if (inquiry.equals("inquiry")) {
-                System.out.println("저장된 연산 결과");
-                for (int i : cal.totalResult) {
-                    System.out.println("연산 결과: " + i);
-                }
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
