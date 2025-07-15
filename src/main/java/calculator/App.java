@@ -43,8 +43,17 @@ public class App {
             }
             System.out.println("결과: " + result);
 
-            arr[i] = result;
-            i++;
+            if (i < 10) {
+                arr[i] = result;
+                i++;
+            } else {
+                int j = 0;
+                while (j < 9) {
+                    arr[j] = arr[j + 1];  // 앞으로 하나씩 당기기
+                    j++;
+                }
+                arr[9] = result;  // 마지막 위치에 새 결과 저장
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String str = sc.next();
@@ -54,8 +63,8 @@ public class App {
                 run = false;
             }
         }
-        for (int a : arr) {
-            System.out.println("저장된 값: " + a);
+        for (int k = 0; k < i; k++) {
+            System.out.println("연산 결과: " + arr[k]);
         }
     }
 }
