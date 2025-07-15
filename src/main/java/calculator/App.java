@@ -1,11 +1,12 @@
 package calculator;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[10];
-        int i = 0;
+        List<Integer> totalResult = new ArrayList<>();  // 리스트 선언
 
         boolean run = true;
         while (run) {
@@ -43,28 +44,25 @@ public class App {
             }
             System.out.println("결과: " + result);
 
-            if (i < 10) {
-                arr[i] = result;
-                i++;
-            } else {
-                int j = 0;
-                while (j < 9) {
-                    arr[j] = arr[j + 1];  // 앞으로 하나씩 당기기
-                    j++;
-                }
-                arr[9] = result;  // 마지막 위치에 새 결과 저장
+            totalResult.add(result);  // 리스트에 연산 결과 저장
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String delete = sc.next();
+
+            if (delete.equals("remove")) {
+                totalResult.remove(0);  // 0번째 인덱스 값 삭제
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String str = sc.next();
+            String end = sc.next();
 
-            if (str.equals("exit")) {
+            if (end.equals("exit")) {
                 System.out.println("계산기를 종료합니다.");
                 run = false;
             }
         }
-        for (int k = 0; k < i; k++) {
-            System.out.println("연산 결과: " + arr[k]);
+        for (int i = 0; i < totalResult.size(); i++) {
+            System.out.println("연산 결과: " + totalResult.get(i));
         }
     }
 }
